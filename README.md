@@ -57,7 +57,7 @@ pip install -r requirements.txt
 
 3. Run the application:
 ```bash
-python content_optimizer.py
+python src/app.py
 ```
 
 4. Open your browser to `http://localhost:5000`
@@ -308,7 +308,7 @@ pip install -r requirements.txt
 
 3. Execute a aplicação:
 ```bash
-python content_optimizer.py
+python src/app.py
 ```
 
 4. Abra seu navegador em `http://localhost:5000`

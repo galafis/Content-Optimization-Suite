@@ -1,1 +1,6 @@
 flask>=2.0.0
+
+
+nltk
+textstat
+beautifulsoup4
