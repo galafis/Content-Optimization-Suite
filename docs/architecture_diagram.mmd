@@ -1,0 +1,12 @@
+graph TD
+    A[Usuário] --> B(Navegador)
+    B --> C[Interface Web]
+    C -- API Requests --> D[Aplicação Flask]
+    D -- Usa --> E[ContentAnalyzer]
+    E -- NLP --> F[NLTK]
+    E -- Readability --> G[TextStat]
+    E -- HTML Parsing --> H[BeautifulSoup]
+    E -- Data Analysis --> I[Pandas]
+    D -- Retorna Dados --> C
+    C -- Exibe Resultados --> B
+

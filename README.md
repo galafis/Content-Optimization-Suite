@@ -2,7 +2,21 @@
 
 [English](#english) | [Português](#português)
 
+---
+
 ## English
+
+![Hero Image](assets/hero_image.png)
+
+### Badges
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=flat-square&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-2.0%2B-black?style=flat-square&logo=flask&logoColor=white)
+![NLTK](https://img.shields.io/badge/NLTK-blueviolet?style=flat-square&logo=nltk&logoColor=white)
+![TextStat](https://img.shields.io/badge/TextStat-orange?style=flat-square)
+![BeautifulSoup](https://img.shields.io/badge/BeautifulSoup-green?style=flat-square)
+![Pandas](https://img.shields.io/badge/Pandas-1.x-red?style=flat-square&logo=pandas&logoColor=white)
+![License](https://img.shields.io/github/license/galafis/Content-Optimization-Suite?style=flat-square)
+![Last Commit](https://img.shields.io/github/last-commit/galafis/Content-Optimization-Suite?style=flat-square)
 
 ### Overview
 Comprehensive content optimization suite built with Python and Flask. Features advanced content analysis, SEO scoring, readability assessment, and optimization recommendations for creating search engine friendly content.
@@ -16,6 +30,9 @@ Comprehensive content optimization suite built with Python and Flask. Features a
 - **Content Suggestions**: AI-powered content improvement recommendations
 - **Competitor Analysis**: Compare content with competitors
 - **Performance Tracking**: Monitor content performance over time
+
+### Architecture Diagram
+![Architecture Diagram](assets/architecture_diagram.png)
 
 ### Technologies Used
 - **Python 3.8+**
@@ -239,6 +256,19 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Português
 
+![Imagem Hero](assets/hero_image.png)
+
+
+### Badges
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=flat-square&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-2.0%2B-black?style=flat-square&logo=flask&logoColor=white)
+![NLTK](https://img.shields.io/badge/NLTK-blueviolet?style=flat-square&logo=nltk&logoColor=white)
+![TextStat](https://img.shields.io/badge/TextStat-orange?style=flat-square)
+![BeautifulSoup](https://img.shields.io/badge/BeautifulSoup-green?style=flat-square)
+![Pandas](https://img.shields.io/badge/Pandas-1.x-red?style=flat-square&logo=pandas&logoColor=white)
+![License](https://img.shields.io/github/license/galafis/Content-Optimization-Suite?style=flat-square)
+![Last Commit](https://img.shields.io/github/last-commit/galafis/Content-Optimization-Suite?style=flat-square)
+
 ### Visão Geral
 Suite abrangente de otimização de conteúdo construída com Python e Flask. Apresenta análise avançada de conteúdo, pontuação SEO, avaliação de legibilidade e recomendações de otimização para criar conteúdo amigável aos mecanismos de busca.
 
@@ -251,6 +281,9 @@ Suite abrangente de otimização de conteúdo construída com Python e Flask. Ap
 - **Sugestões de Conteúdo**: Recomendações de melhoria de conteúdo com IA
 - **Análise de Concorrentes**: Comparar conteúdo com concorrentes
 - **Rastreamento de Performance**: Monitorar performance do conteúdo ao longo do tempo
+
+### Diagrama de Arquitetura
+![Diagrama de Arquitetura](assets/architecture_diagram.png)
 
 ### Tecnologias Utilizadas
 - **Python 3.8+**
@@ -280,6 +313,186 @@ python content_optimizer.py
 
 4. Abra seu navegador em `http://localhost:5000`
 
+### Uso
+
+#### Interface Web
+1. **Entrada de Conteúdo**: Cole ou faça upload de conteúdo para análise
+2. **Palavras-chave Alvo**: Especifique palavras-chave primárias e secundárias
+3. **Opções de Análise**: Selecione a profundidade e métricas de análise
+4. **Gerar Relatório**: Crie um relatório abrangente de otimização
+5. **Aplicar Sugestões**: Implemente as melhorias recomendadas
+
+#### Endpoints da API
+
+**Analisar Conteúdo**
+```bash
+curl -X POST http://localhost:5000/api/analyze \
+  -H "Content-Type: application/json" \
+  -d '{"content": "Seu conteúdo aqui", "keywords": ["SEO", "otimização de conteúdo"]}'
+```
+
+**Obter Pontuação SEO**
+```bash
+curl -X POST http://localhost:5000/api/seo-score \
+  -H "Content-Type: application/json" \
+  -d '{"content": "Seu conteúdo", "target_keyword": "otimização SEO"}'
+```
+
+#### API Python
+```python
+from content_optimizer import ContentOptimizer
+
+# Inicializar otimizador
+otimizer = ContentOptimizer()
+
+# Analisar conteúdo
+content = "Seu artigo aqui..."
+analysis = optimizer.analyze_content(
+    content=content,
+    target_keywords=["SEO", "marketing de conteúdo"],
+    url="https://example.com/article"
+)
+
+print(f"Pontuação SEO: {analysis['seo_score']}/100")
+print(f"Legibilidade: {analysis['readability_score']}")
+print(f"Contagem de Palavras: {analysis['word_count']}")
+```
+
+### Recursos de Análise de Conteúdo
+
+#### Métricas de Texto
+- **Contagem de Palavras**: Total de palavras no conteúdo
+- **Contagem de Caracteres**: Total de caracteres incluindo espaços
+- **Contagem de Parágrafos**: Número de parágrafos
+- **Contagem de Frases**: Total de frases
+- **Comprimento Médio da Frase**: Palavras por frase
+- **Tempo de Leitura**: Tempo estimado de leitura
+
+#### Análise SEO
+- **Densidade de Palavras-chave**: Frequência da palavra-chave primária
+- **Distribuição de Palavras-chave**: Análise de posicionamento de palavras-chave
+- **Otimização de Título**: Avaliação SEO da tag de título
+- **Meta Descrição**: Verificação de otimização da descrição
+- **Estrutura de Cabeçalho**: Análise de tags H1, H2, H3
+- **Links Internos**: Oportunidades de linkagem interna
+
+#### Avaliação de Legibilidade
+- **Flesch Reading Ease**: Pontuação de legibilidade (0-100)
+- **Flesch-Kincaid Grade**: Nível de escolaridade exigido
+- **Gunning Fog Index**: Medida de complexidade
+- **SMOG Index**: Medida Simples de Gíria
+- **Automated Readability Index**: Pontuação ARI
+- **Coleman-Liau Index**: Legibilidade baseada em caracteres
+
+### Recomendações de Otimização
+
+#### Estrutura de Conteúdo
+- **Otimização de Cabeçalho**: Melhorar a estrutura de títulos
+- **Comprimento do Parágrafo**: Otimizar o tamanho dos parágrafos
+- **Variedade de Frases**: Melhorar a variação do comprimento das frases
+- **Palavras de Transição**: Adicionar frases de conexão
+- **Marcadores**: Usar listas para melhor legibilidade
+- **Espaço em Branco**: Melhorar a formatação do conteúdo
+
+#### Melhorias de SEO
+- **Posicionamento de Palavras-chave**: Otimizar o posicionamento de palavras-chave
+- **Palavras-chave Semânticas**: Adicionar termos relacionados
+- **Meta Tags**: Melhorar título e descrição
+- **Texto Alternativo de Imagem**: Otimizar descrições de imagem
+- **Estrutura de URL**: Melhorar a legibilidade da URL
+- **Marcação de Esquema**: Adicionar dados estruturados
+
+#### Qualidade do Conteúdo
+- **Análise de Profundidade**: Abrangência do conteúdo
+- **Sinais de Expertise**: Indicadores de autoridade e expertise
+- **Atualização**: Recomendações de atualização de conteúdo
+- **Intenção do Usuário**: Corresponder conteúdo à intenção de busca
+- **Chamada para Ação**: Melhorar elementos de conversão
+- **Otimização Móvel**: Conteúdo amigável para dispositivos móveis
+
+### Análise de Concorrentes
+
+#### Comparação de Conteúdo
+- **Comprimento do Conteúdo**: Comparar contagem de palavras
+- **Uso de Palavras-chave**: Análise de palavras-chave de concorrentes
+- **Estrutura de Conteúdo**: Comparação de cabeçalho e formatação
+- **Cobertura de Tópicos**: Análise de profundidade do conteúdo
+- **Métricas de Performance**: Comparação de ranking e tráfego
+
+#### Análise de Lacunas
+- **Tópicos Ausentes**: Identificar lacunas de conteúdo
+- **Oportunidades de Palavras-chave**: Palavras-chave subutilizadas
+- **Formatos de Conteúdo**: Tipos de conteúdo ausentes
+- **Perguntas do Usuário**: Perguntas de usuários não respondidas
+- **Cobertura Semântica**: Análise de tópicos relacionados
+
+### Rastreamento de Performance
+
+#### Métricas de Conteúdo
+- **Rankings de Busca**: Rastrear posições de palavras-chave
+- **Tráfego Orgânico**: Monitorar mudanças de tráfego
+- **Taxas de Cliques**: Melhorias de CTR
+- **Taxa de Rejeição**: Métricas de engajamento do usuário
+- **Tempo na Página**: Tempo de engajamento do conteúdo
+- **Compartilhamentos Sociais**: Performance em mídias sociais
+
+#### Impacto da Otimização
+- **Análise Antes/Depois**: Comparação pré e pós otimização
+- **Melhorias de Pontuação**: Mudanças na pontuação SEO ao longo do tempo
+- **Mudanças de Ranking**: Melhorias de posição
+- **Crescimento de Tráfego**: Aumentos de tráfego orgânico
+- **Taxas de Conversão**: Melhorias na conclusão de metas
+
+### Modelos de Conteúdo
+
+#### Posts de Blog
+- **Estrutura de Introdução**: Modelos de abertura envolventes
+- **Organização do Corpo**: Modelos de fluxo de conteúdo
+- **Formato de Conclusão**: Modelos de fechamento eficazes
+- **Posicionamento de CTA**: Posicionamento de chamada para ação
+
+#### Páginas de Produto
+- **Descrições de Produto**: Descrições otimizadas para SEO
+- **Destaques de Recursos**: Conteúdo focado em benefícios
+- **Especificações Técnicas**: Detalhes estruturados do produto
+- **Avaliações de Clientes**: Modelos de integração de avaliações
+
+#### Páginas de Destino
+- **Fórmulas de Título**: Títulos de alta conversão
+- **Proposições de Valor**: Declarações claras de benefício
+- **Prova Social**: Posicionamento de depoimentos e avaliações
+- **Elementos de Conversão**: Otimização de formulários e botões
+
+### Configuração
+Configure as configurações de otimização em `config.json`:
+```json
+{
+  "analysis_settings": {
+    "min_word_count": 300,
+    "target_keyword_density": 2.5,
+    "max_sentence_length": 20,
+    "readability_target": 60
+  },
+  "seo_settings": {
+    "title_length": [30, 60],
+    "meta_description_length": [120, 160],
+    "header_structure": true,
+    "internal_links": true
+  },
+  "reporting": {
+    "include_suggestions": true,
+    "competitor_analysis": true,
+    "export_format": "pdf"
+  }
+}
+```
+
+### Integração
+- **WordPress**: Plugin para otimização de WordPress
+- **Google Analytics**: Integração de rastreamento de performance
+- **Search Console**: Dados de performance de busca
+- **Gerenciamento de Conteúdo**: Integração com plataformas CMS
+
 ### Contribuindo
 1. Faça um fork do repositório
 2. Crie uma branch de feature (`git checkout -b feature/nova-feature`)
@@ -290,23 +503,3 @@ python content_optimizer.py
 ### Licença
 Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
-
-
-## 📋 Descrição
-
-Descreva aqui o conteúdo desta seção.
-
-
-## 📦 Instalação
-
-Descreva aqui o conteúdo desta seção.
-
-
-## 💻 Uso
-
-Descreva aqui o conteúdo desta seção.
-
-
-## 📄 Licença
-
-Descreva aqui o conteúdo desta seção.

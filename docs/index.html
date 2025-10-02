@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Optimization Suite</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📝 Content Optimization Suite</h1>
+            <p>Comprehensive content optimization and SEO analysis tool</p>
+        </div>
+        
+        <div class="content-grid">
+            <div class="card">
+                <h3>✍️ Content Input</h3>
+                <div class="form-group">
+                    <label for="targetKeyword">Target Keyword (optional):</label>
+                    <input type="text" id="targetKeyword" placeholder="e.g., digital marketing tips">
+                </div>
+                <div class="form-group">
+                    <label for="contentText">Content to Analyze:</label>
+                    <textarea id="contentText" placeholder="Paste your content here for analysis...">Digital marketing has become an essential component of modern business strategy. In today's competitive landscape, companies must leverage various digital channels to reach their target audience effectively.
+
+Search engine optimization (SEO) plays a crucial role in digital marketing success. By optimizing content for search engines, businesses can improve their online visibility and attract more organic traffic to their websites.
+
+Content marketing is another vital aspect of digital marketing. Creating valuable, relevant content helps establish brand authority and builds trust with potential customers. This approach focuses on providing useful information rather than directly promoting products or services.
+
+Social media marketing allows businesses to engage with their audience on platforms where they spend significant time. Through strategic social media campaigns, companies can increase brand awareness and foster customer relationships.
+
+Email marketing remains one of the most effective digital marketing channels, offering high ROI when executed properly. Personalized email campaigns can nurture leads and convert prospects into loyal customers.</textarea>
+                </div>
+                <button onclick="analyzeContent()" class="btn">🔍 Analyze Content</button>
+                <button onclick="clearContent()" class="btn" style="background: #6c757d;">🗑️ Clear</button>
+            </div>
+            
+            <div class="card">
+                <h3>📊 Content Metrics</h3>
+                <div id="metricsContainer">
+                    <p style="text-align: center; color: #666; padding: 40px;">Enter content and click "Analyze Content" to see metrics</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-grid">
+            <div class="card">
+                <h3>🎯 SEO Score</h3>
+                <div id="seoScoreContainer" style="text-align: center;">
+                    <div class="score-circle score-poor" id="scoreCircle">--</div>
+                    <p id="scoreDescription">No analysis yet</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>🔤 Top Keywords</h3>
+                <div id="keywordsContainer">
+                    <p style="text-align: center; color: #666;">Keywords will appear after analysis</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card full-width">
+            <h3>💡 Optimization Suggestions</h3>
+            <div id="suggestionsContainer">
+                <p style="text-align: center; color: #666; padding: 20px;">Suggestions will appear after content analysis</p>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2023 Content Optimization Suite by Gabriel Demetrios Lafis. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
