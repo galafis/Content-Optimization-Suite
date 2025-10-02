@@ -6,6 +6,8 @@
 
 ## English
 
+### 🖼️ Hero Image
+
 ![Hero Image](assets/hero_image.png)
 
 ### Badges
@@ -256,8 +258,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Português
 
-![Imagem Hero](assets/hero_image.png)
+### 🖼️ Imagem Hero
 
+![Imagem Hero](assets/hero_image.png)
 
 ### Badges
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=flat-square&logo=python&logoColor=white)
@@ -405,7 +408,7 @@ print(f"Contagem de Palavras: {analysis['word_count']}")
 #### Qualidade do Conteúdo
 - **Análise de Profundidade**: Abrangência do conteúdo
 - **Sinais de Expertise**: Indicadores de autoridade e expertise
-- **Atualização**: Recomendações de atualização de conteúdo
+- **Freshness**: Recomendações de atualização de conteúdo
 - **Intenção do Usuário**: Corresponder conteúdo à intenção de busca
 - **Chamada para Ação**: Melhorar elementos de conversão
 - **Otimização Móvel**: Conteúdo amigável para dispositivos móveis
@@ -440,7 +443,7 @@ print(f"Contagem de Palavras: {analysis['word_count']}")
 - **Análise Antes/Depois**: Comparação pré e pós otimização
 - **Melhorias de Pontuação**: Mudanças na pontuação SEO ao longo do tempo
 - **Mudanças de Ranking**: Melhorias de posição
-- **Crescimento de Tráfego**: Aumentos de tráfego orgânico
+- **Tráfego Crescimento**: Aumentos de tráfego orgânico
 - **Taxas de Conversão**: Melhorias na conclusão de metas
 
 ### Modelos de Conteúdo
@@ -458,8 +461,8 @@ print(f"Contagem de Palavras: {analysis['word_count']}")
 - **Avaliações de Clientes**: Modelos de integração de avaliações
 
 #### Páginas de Destino
-- **Fórmulas de Título**: Títulos de alta conversão
-- **Proposições de Valor**: Declarações claras de benefício
+- **Fórmulas de Títulos**: Títulos de alta conversão
+- **Proposições de Valor**: Declarações claras de benefícios
 - **Prova Social**: Posicionamento de depoimentos e avaliações
 - **Elementos de Conversão**: Otimização de formulários e botões
 
@@ -491,13 +494,13 @@ Configure as configurações de otimização em `config.json`:
 - **WordPress**: Plugin para otimização de WordPress
 - **Google Analytics**: Integração de rastreamento de performance
 - **Search Console**: Dados de performance de busca
-- **Gerenciamento de Conteúdo**: Integração com plataformas CMS
+- **Gerenciamento de Conteúdo**: Integração com plataforma CMS
 
 ### Contribuindo
 1. Faça um fork do repositório
 2. Crie uma branch de feature (`git checkout -b feature/nova-feature`)
-3. Commit suas mudanças (`git commit -am 'Adicionar nova feature'`)
-4. Push para a branch (`git push origin feature/nova-feature`)
+3. Faça seus commits (`git commit -am 'Adicionar nova feature'`)
+4. Envie para a branch (`git push origin feature/nova-feature`)
 5. Crie um Pull Request
 
 ### Licença
