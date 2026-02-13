@@ -78,8 +78,11 @@ class ContentAnalyzer:
         if sentence_count == 0:
             return 0.0
         avg_sentence_length = word_count / sentence_count
-        # Simplified Flesch Reading Ease formula
-        score = 206.835 - (1.015 * avg_sentence_length) - (84.6 * 1.5) 
+        # Simplified Flesch Reading Ease approximation: uses a fixed constant of
+        # 1.5 as an estimate for average syllables per word instead of counting
+        # actual syllables. This makes the score an approximation of the real
+        # Flesch Reading Ease formula (which requires syllable counting).
+        score = 206.835 - (1.015 * avg_sentence_length) - (84.6 * 1.5)
         return round(max(0, min(100, score)), 1)
 
     def calculate_seo_score(self, content, target_keyword, word_count):

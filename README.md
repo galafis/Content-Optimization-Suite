@@ -1,65 +1,161 @@
-# 🚀 Content Optimization Suite
+# Content-Optimization-Suite
 
-> Professional project by Gabriel Demetrios Lafis
+Suite de otimizacao de conteudo com analise de legibilidade, contagem de palavras, densidade de palavras-chave, pontuacao SEO e sugestoes de melhoria via API Flask.
 
-[![Python](https://img.shields.io/badge/Python-3.12-3776AB.svg)](https://img.shields.io/badge/)
-[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED.svg)](https://img.shields.io/badge/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+Content optimization suite with readability analysis, word count, keyword density, SEO scoring and improvement suggestions via Flask API.
 
-[English](#english) | [Português](#português)
+[Portugues](#portugues) | [English](#english)
+
+---
+
+## Portugues
+
+### Descricao
+
+Este projeto fornece uma classe `ContentAnalyzer` que analisa textos e retorna metricas como:
+
+- Contagem de palavras e caracteres
+- Contagem de frases e paragrafos
+- Media de palavras por frase
+- Pontuacao de legibilidade (aproximacao da formula Flesch Reading Ease usando uma constante fixa de 1.5 silabas por palavra em vez de contagem real de silabas)
+- Densidade de palavras-chave para uma palavra-chave alvo
+- Pontuacao SEO baseada em comprimento do conteudo, estrutura, contagem de frases e densidade de palavras-chave
+- Top 10 palavras-chave mais frequentes (excluindo stop words)
+- Sugestoes de otimizacao baseadas na analise
+
+A API Flask expoe dois endpoints:
+
+- `POST /api/analyze` — recebe texto e palavra-chave opcional, retorna metricas de analise
+- `POST /api/suggestions` — recebe resultado de analise, retorna sugestoes de melhoria
+
+### O que este projeto NAO possui
+
+- Processamento de linguagem natural (nao usa NLTK)
+- Parsing de HTML (nao usa BeautifulSoup)
+- Estatisticas avancadas de texto (nao usa textstat)
+- Machine learning
+- Banco de dados
+- Autenticacao
+- Containerizacao (Docker)
+
+### Tecnologias
+
+- Python
+- Flask
+
+### Como executar
+
+```bash
+# Clonar o repositorio
+git clone https://github.com/galafis/Content-Optimization-Suite.git
+cd Content-Optimization-Suite
+
+# Criar e ativar ambiente virtual
+python -m venv venv
+source venv/bin/activate  # No Windows: venv\Scripts\activate
+
+# Instalar dependencias
+pip install -r requirements.txt
+
+# Executar a aplicacao
+cd src && python app.py
+# Ou:
+python -m src.app
+```
+
+O servidor inicia em `http://0.0.0.0:5000`.
+
+### Exemplos de uso
+
+```bash
+# Analisar conteudo
+curl -X POST http://localhost:5000/api/analyze \
+  -H "Content-Type: application/json" \
+  -d '{"content": "Seu texto aqui.", "target_keyword": "texto"}'
+
+# Obter sugestoes
+curl -X POST http://localhost:5000/api/suggestions \
+  -H "Content-Type: application/json" \
+  -d '{"analysis": {"word_count": 100, "readability_score": 50, "keyword_density": 0.5, "paragraph_count": 1}, "target_keyword": "texto"}'
+```
+
+### Testes
+
+O projeto inclui 8 testes unitarios para a classe `ContentAnalyzer`:
+
+```bash
+# Executar todos os testes
+python -m pytest tests/ -v
+```
+
+### Arquitetura
+
+```mermaid
+graph TD
+    Client[Cliente HTTP] -->|POST /api/analyze| FlaskAPI[Flask API - app.py]
+    Client -->|POST /api/suggestions| FlaskAPI
+    FlaskAPI --> CA[ContentAnalyzer]
+    CA --> analyze[analyze_content]
+    CA --> readability[calculate_readability]
+    CA --> keyword[calculate_keyword_density]
+    CA --> seo[calculate_seo_score]
+    CA --> suggestions[get_optimization_suggestions]
+    CA --> topkw[get_top_keywords]
+```
+
+### Estrutura do projeto
+
+```
+Content-Optimization-Suite/
+├── src/
+│   ├── __init__.py
+│   ├── app.py                 # API Flask
+│   └── content_optimizer.py   # Classe ContentAnalyzer
+├── tests/
+│   └── test_content_optimizer.py  # 8 testes unitarios
+├── requirements.txt
+├── LICENSE
+└── README.md
+```
 
 ---
 
 ## English
 
-### 🎯 Overview
+### Description
 
-**Content Optimization Suite** is a production-grade Python application complemented by CSS, HTML, JavaScript that showcases modern software engineering practices including clean architecture, comprehensive testing, containerized deployment, and CI/CD readiness.
+This project provides a `ContentAnalyzer` class that analyzes text and returns metrics such as:
 
-The codebase comprises **577 lines** of source code organized across **7 modules**, following industry best practices for maintainability, scalability, and code quality.
+- Word and character count
+- Sentence and paragraph count
+- Average words per sentence
+- Readability score (approximation of the Flesch Reading Ease formula using a fixed constant of 1.5 syllables per word instead of actual syllable counting)
+- Keyword density for a target keyword
+- SEO score based on content length, structure, sentence count and keyword density
+- Top 10 most frequent keywords (excluding stop words)
+- Optimization suggestions based on the analysis
 
-### ✨ Key Features
+The Flask API exposes two endpoints:
 
-- **🐳 Containerized**: Docker support for consistent deployment
-- **🏗️ Object-Oriented**: 2 core classes with clean architecture
-- **📐 Clean Architecture**: Modular design with clear separation of concerns
-- **🧪 Test Coverage**: Unit and integration tests for reliability
-- **📚 Documentation**: Comprehensive inline documentation and examples
-- **🔧 Configuration**: Environment-based configuration management
+- `POST /api/analyze` — receives text and optional keyword, returns analysis metrics
+- `POST /api/suggestions` — receives analysis result, returns improvement suggestions
 
-### 🏗️ Architecture
+### What this project does NOT have
 
-```mermaid
-graph TB
-    subgraph Core["🏗️ Core"]
-        A[Main Module]
-        B[Business Logic]
-        C[Data Processing]
-    end
-    
-    subgraph Support["🔧 Support"]
-        D[Configuration]
-        E[Utilities]
-        F[Tests]
-    end
-    
-    A --> B --> C
-    D --> A
-    E --> B
-    F -.-> B
-    
-    style Core fill:#e1f5fe
-    style Support fill:#f3e5f5
-```
+- Natural language processing (no NLTK)
+- HTML parsing (no BeautifulSoup)
+- Advanced text statistics (no textstat)
+- Machine learning
+- Database
+- Authentication
+- Containerization (Docker)
 
-### 🚀 Quick Start
+### Tech stack
 
-#### Prerequisites
+- Python
+- Flask
 
-- Python 3.12+
-- pip (Python package manager)
-
-#### Installation
+### How to run
 
 ```bash
 # Clone the repository
@@ -72,210 +168,78 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
+
+# Run the application
+cd src && python app.py
+# Or:
+python -m src.app
 ```
 
-#### Running
+The server starts at `http://0.0.0.0:5000`.
+
+### Usage examples
 
 ```bash
-# Run the application
-python src/app.py
+# Analyze content
+curl -X POST http://localhost:5000/api/analyze \
+  -H "Content-Type: application/json" \
+  -d '{"content": "Your text here.", "target_keyword": "text"}'
+
+# Get suggestions
+curl -X POST http://localhost:5000/api/suggestions \
+  -H "Content-Type: application/json" \
+  -d '{"analysis": {"word_count": 100, "readability_score": 50, "keyword_density": 0.5, "paragraph_count": 1}, "target_keyword": "text"}'
 ```
 
-### 🧪 Testing
+### Tests
+
+The project includes 8 unit tests for the `ContentAnalyzer` class:
 
 ```bash
 # Run all tests
-pytest
-
-# Run with coverage report
-pytest --cov --cov-report=html
-
-# Run specific test module
-pytest tests/test_main.py -v
-
-# Run with detailed output
-pytest -v --tb=short
+python -m pytest tests/ -v
 ```
 
-### 📁 Project Structure
+### Architecture
+
+```mermaid
+graph TD
+    Client[HTTP Client] -->|POST /api/analyze| FlaskAPI[Flask API - app.py]
+    Client -->|POST /api/suggestions| FlaskAPI
+    FlaskAPI --> CA[ContentAnalyzer]
+    CA --> analyze[analyze_content]
+    CA --> readability[calculate_readability]
+    CA --> keyword[calculate_keyword_density]
+    CA --> seo[calculate_seo_score]
+    CA --> suggestions[get_optimization_suggestions]
+    CA --> topkw[get_top_keywords]
+```
+
+### Project structure
 
 ```
 Content-Optimization-Suite/
-├── assets/
-├── config/        # Configuration
-│   └── requirements.txt
-├── docs/          # Documentation
-│   └── script.js
-├── src/          # Source code
+├── src/
 │   ├── __init__.py
-│   ├── app.py
-│   └── content_optimizer.py
-├── tests/         # Test suite
-│   └── test_content_optimizer.py
-├── Dockerfile
+│   ├── app.py                 # Flask API
+│   └── content_optimizer.py   # ContentAnalyzer class
+├── tests/
+│   └── test_content_optimizer.py  # 8 unit tests
+├── requirements.txt
 ├── LICENSE
 └── README.md
 ```
-
-### 🛠️ Tech Stack
-
-| Technology | Description | Role |
-|------------|-------------|------|
-| **Python** | Core Language | Primary |
-| **Docker** | Containerization platform | Framework |
-| HTML | 1 files | Supporting |
-| JavaScript | 1 files | Supporting |
-| CSS | 1 files | Supporting |
-
-### 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-### 👤 Author
-
-**Gabriel Demetrios Lafis**
-- GitHub: [@galafis](https://github.com/galafis)
-- LinkedIn: [Gabriel Demetrios Lafis](https://linkedin.com/in/gabriel-demetrios-lafis)
 
 ---
 
-## Português
-
-### 🎯 Visão Geral
-
-**Content Optimization Suite** é uma aplicação Python de nível profissional, complementada por CSS, HTML, JavaScript que demonstra práticas modernas de engenharia de software, incluindo arquitetura limpa, testes abrangentes, implantação containerizada e prontidão para CI/CD.
-
-A base de código compreende **577 linhas** de código-fonte organizadas em **7 módulos**, seguindo as melhores práticas do setor para manutenibilidade, escalabilidade e qualidade de código.
-
-### ✨ Funcionalidades Principais
-
-- **🐳 Containerized**: Docker support for consistent deployment
-- **🏗️ Object-Oriented**: 2 core classes with clean architecture
-- **📐 Clean Architecture**: Modular design with clear separation of concerns
-- **🧪 Test Coverage**: Unit and integration tests for reliability
-- **📚 Documentation**: Comprehensive inline documentation and examples
-- **🔧 Configuration**: Environment-based configuration management
-
-### 🏗️ Arquitetura
-
-```mermaid
-graph TB
-    subgraph Core["🏗️ Core"]
-        A[Main Module]
-        B[Business Logic]
-        C[Data Processing]
-    end
-    
-    subgraph Support["🔧 Support"]
-        D[Configuration]
-        E[Utilities]
-        F[Tests]
-    end
-    
-    A --> B --> C
-    D --> A
-    E --> B
-    F -.-> B
-    
-    style Core fill:#e1f5fe
-    style Support fill:#f3e5f5
-```
-
-### 🚀 Início Rápido
-
-#### Prerequisites
-
-- Python 3.12+
-- pip (Python package manager)
-
-#### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/galafis/Content-Optimization-Suite.git
-cd Content-Optimization-Suite
-
-# Create and activate virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-```
-
-#### Running
-
-```bash
-# Run the application
-python src/app.py
-```
-
-### 🧪 Testing
-
-```bash
-# Run all tests
-pytest
-
-# Run with coverage report
-pytest --cov --cov-report=html
-
-# Run specific test module
-pytest tests/test_main.py -v
-
-# Run with detailed output
-pytest -v --tb=short
-```
-
-### 📁 Estrutura do Projeto
-
-```
-Content-Optimization-Suite/
-├── assets/
-├── config/        # Configuration
-│   └── requirements.txt
-├── docs/          # Documentation
-│   └── script.js
-├── src/          # Source code
-│   ├── __init__.py
-│   ├── app.py
-│   └── content_optimizer.py
-├── tests/         # Test suite
-│   └── test_content_optimizer.py
-├── Dockerfile
-├── LICENSE
-└── README.md
-```
-
-### 🛠️ Stack Tecnológica
-
-| Tecnologia | Descrição | Papel |
-|------------|-----------|-------|
-| **Python** | Core Language | Primary |
-| **Docker** | Containerization platform | Framework |
-| HTML | 1 files | Supporting |
-| JavaScript | 1 files | Supporting |
-| CSS | 1 files | Supporting |
-
-### 🤝 Contribuindo
-
-Contribuições são bem-vindas! Sinta-se à vontade para enviar um Pull Request.
-
-### 📄 Licença
-
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
-
-### 👤 Autor
+## Autor / Author
 
 **Gabriel Demetrios Lafis**
 - GitHub: [@galafis](https://github.com/galafis)
 - LinkedIn: [Gabriel Demetrios Lafis](https://linkedin.com/in/gabriel-demetrios-lafis)
+
+## Licenca / License
+
+Este projeto esta licenciado sob a Licenca MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

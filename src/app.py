@@ -1,16 +1,18 @@
-from flask import Flask, send_from_directory, jsonify, request
-from content_optimizer import ContentAnalyzer
+from flask import Flask, jsonify, request
 
-app = Flask(__name__, static_folder='../docs', static_url_path='/')
+try:
+    from content_optimizer import ContentAnalyzer
+except ImportError:
+    from src.content_optimizer import ContentAnalyzer
+
+app = Flask(__name__)
 analyzer = ContentAnalyzer()
-
-@app.route('/')
-def index():
-    return send_from_directory(app.static_folder, 'index.html')
 
 @app.route('/api/analyze', methods=['POST'])
 def api_analyze():
     data = request.get_json()
+    if data is None:
+        return jsonify({'error': 'Invalid or missing JSON body'}), 400
     content = data.get('content', '')
     target_keyword = data.get('target_keyword', None)
     analysis_result = analyzer.analyze(content, target_keyword)
@@ -19,6 +21,8 @@ def api_analyze():
 @app.route('/api/suggestions', methods=['POST'])
 def api_suggestions():
     data = request.get_json()
+    if data is None:
+        return jsonify({'error': 'Invalid or missing JSON body'}), 400
     analysis = data.get('analysis', {})
     target_keyword = data.get('target_keyword', None)
     suggestions = analyzer.get_optimization_suggestions(analysis, target_keyword)
