@@ -1,5 +1,15 @@
 # Content-Optimization-Suite
 
+<div align="center">
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+
+</div>
+
+
 Suite de otimizacao de conteudo com analise de legibilidade, contagem de palavras, densidade de palavras-chave, pontuacao SEO e sugestoes de melhoria via API Flask.
 
 Content optimization suite with readability analysis, word count, keyword density, SEO scoring and improvement suggestions via Flask API.
